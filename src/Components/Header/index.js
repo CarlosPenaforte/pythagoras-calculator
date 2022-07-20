@@ -1,0 +1,9 @@
+import * as S from "./styled";
+
+export const Header = () => {
+  return(
+    <S.WrapperHeader>
+      <h1>Pythagoras Calculator</h1>
+    </S.WrapperHeader>
+  );
+};
