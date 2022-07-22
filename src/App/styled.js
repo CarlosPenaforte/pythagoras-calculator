@@ -9,6 +9,8 @@ export const WrapperApp = styled.div`
 // Background animado com @keyframes
 export const Container = styled.div`
   display: flex;
+  margin:0;
+  padding: 0;
   flex-direction:column;
   justify-content: center;
   align-items: center;

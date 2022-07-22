@@ -7,6 +7,8 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  margin:0;
+  padding:0;
 `;
 
 // Centralização de cada input

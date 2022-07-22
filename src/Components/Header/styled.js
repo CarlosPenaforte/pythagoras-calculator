@@ -3,11 +3,11 @@ import styled from "styled-components";
 //Título fixado na parte superior
 export const WrapperHeader = styled.div`
   position: absolute;
-  top: 0;
+  top: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  padding: 0;
 
   h1 {
     font-size: 2.5rem;
@@ -19,7 +19,7 @@ export const WrapperHeader = styled.div`
   }
 
   @media (max-width: 40rem) {
-    margin-top: 20px;
+    top: 32px;
     text-align: center;
     
     h1{

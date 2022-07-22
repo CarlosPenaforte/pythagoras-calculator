@@ -9,6 +9,8 @@ export const WrapperTabs = styled(Tabs)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 `;
 
 // Retirada de predefinições da lista de tabs
@@ -17,6 +19,15 @@ export const WrapperTabList = styled(TabList)`
   padding: 0;
   display: flex;
   margin: 0;
+  position: relative;
+  bottom: -0.2rem;
+  left: 1rem;
+
+  @media (max-width: 30rem) {
+    position: relative;
+    bottom: -4px;
+    left: 14px;
+  }
 `;
 
 WrapperTabList.tabsRole = "TabList";
@@ -27,13 +38,9 @@ export const WrapperTab = styled(Tab)`
   padding: 0.4rem;
   width: 6rem;
   height: 1.2rem;
-  margin: 3rem 0;
   user-select: none;
   cursor: pointer;
   background-color: rgb(255, 80, 80);
-  position: relative;
-  top: -11.4rem;
-  left: -5.5rem;
   font-weight: 600;
   font-size: 1rem;
   color: rgb(240, 240, 250);
@@ -46,6 +53,7 @@ export const WrapperTab = styled(Tab)`
 
   &:focus {
     outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   &.is-selected {
@@ -61,9 +69,6 @@ export const WrapperTab = styled(Tab)`
     border-radius: 11px;
     width: 21.6vw;
     height: 4.3vw;
-    top: -41vw;
-    left: -19.8vw;
-    margin: 10.8vw 0;
     padding: 1.44vw;
     font-size: 13px;
 
@@ -87,16 +92,12 @@ WrapperTab.tabsRole = "Tab";
 // Painel reativo à tab selecionada e centralizado na tela
 export const WrapperTabPanel = styled(TabPanel)`
   display: none;
+  margin: 0;
+  z-index: 2;
   height: 20rem;
   width: 25rem;
   padding: 0.5em;
   border-radius: 0.8em;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
   background-color: rgb(50, 50, 75);
 
   h1 {
