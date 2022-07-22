@@ -4,10 +4,13 @@ import * as S from "./styled";
 
 function App() {
   return (
+    // Container do background da página
+    // Título
+    // Painéis funcionais
     <S.Container>
       <Header />
       <S.WrapperApp>
-        <Tabs />
+        <Tabs/>
       </S.WrapperApp>
     </S.Container>
   );
