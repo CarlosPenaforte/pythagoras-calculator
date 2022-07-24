@@ -25,7 +25,7 @@ export const WrapperTabList = styled(TabList)`
 
   @media (max-width: 30rem) {
     position: relative;
-    bottom: -4px;
+    bottom: -3px;
     left: 14px;
   }
 `;
@@ -68,7 +68,7 @@ export const WrapperTab = styled(Tab)`
   @media (max-width: 30rem) {
     border-radius: 11px;
     width: 21.6vw;
-    height: 4.3vw;
+    height: 5vw;
     padding: 1.44vw;
     font-size: 13px;
 

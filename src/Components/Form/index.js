@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as S from "./styled";
 
 function Form(props) {
@@ -8,6 +8,8 @@ function Form(props) {
   //Define as labels de cada input de acordo com a tab selecionada
   const [label1, label2] =
     mode === "hypo" ? ["Catheto 1", "Catheto 2"] : ["Hypotenuse", "Catheto 1"];
+  //String que nomeia o segmento a ser calculado
+  const calculating = mode === "hypo" ? "Hypotenuse" : "Catheto 2";
 
   //Estado do valor do primeiro input
   const [input1, setInput1] = useState("");
@@ -15,15 +17,9 @@ function Form(props) {
   const [input2, setInput2] = useState("");
   //Estado do resultado dos cáculos
   const [result, setResult] = useState("");
-  //Estado da string que nomeia o segmento a ser calculado
-  const [calculating, setCalculating] = useState("");
 
-  //Escuta a mudança da aba selecionada e muda o nome do segmento a ser calculado 
-  useEffect(() => {
-    setCalculating((mode === "hypo")? "Hypotenuse" : "Catheto 2")
-  },[mode])
 
-  //Retira a ação default de recarregar a pagina e calcula o resultado caso os inputs estejam preenchidos
+  // Retira a ação default de recarregar a pagina e calcula o resultado caso os inputs estejam preenchidos
   const submit = (e) => {
     e.preventDefault();
     if (!input1 || !input2) return;
@@ -34,7 +30,16 @@ function Form(props) {
         : (input1 ** 2 - input2 ** 2) ** (1.0 / 2)
     );
   };
-  
+
+  // Handle the update into inputs and remove the ',' case, which caused bugs
+  const handleInput = (event) =>{
+    let value = event.target.value;
+    if (value.includes(",")){
+      value = value.replace(",",".");
+    }
+    return parseFloat(value);
+  };
+
   return (
     // Form para apresentação das entradas e resultados
     // Título reativo à aba
@@ -47,14 +52,14 @@ function Form(props) {
         <S.Input
           type="text"
           placeholder={`Type the ${label1}`}
-          onChange={(event) => setInput1(parseFloat(event.target.value))}
+          onChange={(event) => setInput1(handleInput(event))}
         />
       </S.WrapperInput>
       <S.WrapperInput>
         <S.Input
           type="text"
           placeholder={`Type the ${label2}`}
-          onChange={(event) => setInput2(parseFloat(event.target.value))}
+          onChange={(event) => setInput2(handleInput(event))}
         />
       </S.WrapperInput>
       <S.Button type="submit">
@@ -62,7 +67,11 @@ function Form(props) {
       </S.Button>
       <S.WrapperResult>
         <p>{!!result ? `The ${calculating} is equal to:` : ""}</p>
-        <h2>{!(Math.round(result*100)/100) ? "" : Math.round(result*100)/100 }</h2>
+        <h2>
+          {!(Math.round(result * 100) / 100)
+            ? ""
+            : Math.round(result * 100) / 100}
+        </h2>
       </S.WrapperResult>
     </S.Form>
   );

@@ -11,7 +11,7 @@ The tabs _Hypotenuse_ and _Catheto_ can be selected to calculate the respective 
 ### Form:
 
 Forms are in each panel, containing the inputs and calculation needed to each case. These forms also have a container for printing the result of the calculation.
-For calculating the results and developing the reactive components, the hooks _useState_ and _useEffect_ were used.
+For calculating the results and developing the reactive components, the hook _useState_ was used.
 
 ### Background:
 
